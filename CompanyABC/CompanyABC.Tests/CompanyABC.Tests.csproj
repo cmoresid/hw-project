@@ -100,8 +100,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\HelperTests.cs" />
+    <Compile Include="Tests\ProductControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserPreferencesTests.cs" />
+    <Compile Include="Tests\UserPreferencesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

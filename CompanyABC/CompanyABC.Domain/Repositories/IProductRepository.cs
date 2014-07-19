@@ -9,8 +9,7 @@ namespace CompanyABC.Domain.Repositories
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
-        void CreateProduct(Product newProduct);
-        void UpdateProduct(Product productToUpdate);
-        void DeleteProduct(Product productToDelete);
+        void SaveProduct(Product productToSave);
+        Product DeleteProduct(Guid productToDelete);
     }
 }

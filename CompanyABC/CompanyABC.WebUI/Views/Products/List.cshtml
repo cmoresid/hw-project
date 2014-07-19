@@ -1,0 +1,19 @@
+﻿@model CompanyABC.WebUI.Models.ProductsViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+@foreach (var p in Model.Products)
+{
+    <div class="item">
+        <h1>@p.ABCID</h1>
+        <h3>@p.Title</h3>
+        @p.Description
+        <h4>@p.ListPrice.ToString("c")</h4>
+    </div>
+}
+
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>

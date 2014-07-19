@@ -14,19 +14,45 @@ namespace CompanyABC.Domain.Repositories
             get { return _context.Products; }
         }
 
-        public void CreateProduct(Product newProduct)
+        public void SaveProduct(Product productToSave)
         {
-            throw new NotImplementedException();
+            if (productToSave.ABCID == Guid.Empty)
+            {
+                _context.Products.Add(productToSave);
+            }
+            else
+            {
+                Product dbProduct = _context.Products.Find(productToSave.ABCID);
+
+                if (dbProduct != null)
+                {
+                    dbProduct.Cost = productToSave.Cost;
+                    dbProduct.DateReceived = productToSave.DateReceived;
+                    dbProduct.Description = productToSave.Description;
+                    dbProduct.ListPrice = productToSave.ListPrice;
+                    dbProduct.Location = productToSave.Location;
+                    dbProduct.Status = productToSave.Status;
+                    dbProduct.Title = productToSave.Title;
+                    dbProduct.Vendor = productToSave.Vendor;
+                }
+
+                _context.SaveChanges();
+            }
         }
 
-        public void UpdateProduct(Product productToUpdate)
+        public Product DeleteProduct(Guid productToDelete)
         {
-            throw new NotImplementedException();
-        }
+            Product dbProduct = _context.Products.Find(productToDelete);
 
-        public void DeleteProduct(Product productToDelete)
-        {
-            throw new NotImplementedException();
+            if (dbProduct == null)
+            {
+                return null;
+            }
+
+            _context.Products.Remove(dbProduct);
+            _context.SaveChanges();
+
+            return dbProduct;
         }
     }
 }
