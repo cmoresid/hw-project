@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CompanyABC.PDFGeneration.Abstract;
-using CompanyABC.PDFGeneration.Entities;
 using CompanyABC.Domain.Entities;
 
-namespace CompanyABC.PDFGeneration.Templates
+namespace CompanyABC.Utility.PDFReportGeneration
 {
     public sealed class ProductReportPDFGenerator : PDFReportGenerator
     {
@@ -17,7 +14,7 @@ namespace CompanyABC.PDFGeneration.Templates
 
         protected override void PopulateTable()
         {
-            IEnumerable<Product> products = _info.Records.Cast<Product>();
+            var products = _info.Records.Cast<Product>();
         }
     }
 }

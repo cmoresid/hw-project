@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CompanyABC.PDFGeneration.Constants
+namespace CompanyABC.Utility.PDFReportGeneration.Constants
 {
     public static class CompanyInfo
     {

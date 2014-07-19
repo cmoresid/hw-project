@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyABC.PDFGeneration", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyABC.Console", "CompanyABC.Console\CompanyABC.Console.csproj", "{CA224316-5052-448A-AA30-B0D766F5ABAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyABC.Utility", "CompanyABC.Utility\CompanyABC.Utility.csproj", "{86185A0F-13F6-4DDE-B67A-BF24A00A086F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{CA224316-5052-448A-AA30-B0D766F5ABAE}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CA224316-5052-448A-AA30-B0D766F5ABAE}.Release|x86.ActiveCfg = Release|x86
 		{CA224316-5052-448A-AA30-B0D766F5ABAE}.Release|x86.Build.0 = Release|x86
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{86185A0F-13F6-4DDE-B67A-BF24A00A086F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

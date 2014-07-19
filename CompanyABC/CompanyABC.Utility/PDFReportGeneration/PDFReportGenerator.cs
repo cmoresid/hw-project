@@ -4,19 +4,21 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.Rendering;
-using CompanyABC.PDFGeneration.Entities;
 
-namespace CompanyABC.PDFGeneration.Abstract
+
+namespace CompanyABC.Utility.PDFReportGeneration
 {
     public abstract class PDFReportGenerator
     {
         protected Document _document;
         protected Table _table;
         protected PDFGeneratorInfo _info;
+        protected int _pageNumber;
 
         public PDFReportGenerator(PDFGeneratorInfo info)
         {
             this._info = info;
+            this._pageNumber = 0;
         }
 
         public System.IO.Stream CreatePDFReport()
@@ -72,10 +74,21 @@ namespace CompanyABC.PDFGeneration.Abstract
         private void CreatePage()
         {
             // Each MigraDoc document needs at least one section.
-            Section section = this._document.AddSection();
+            Section currentSection = this._document.LastSection;
+
+            if (currentSection == null)
+            {
+                currentSection = this._document.AddSection();
+            }
+            else
+            {
+                currentSection.AddPageBreak();
+            }
+
+            this._pageNumber += 1;
 
             // Put a logo in the header
-            Image image = section.Headers.Primary.AddImage(this._info.LogoPath);
+            Image image = currentSection.Headers.Primary.AddImage(this._info.LogoPath);
             image.Height = "2.5cm";
             image.LockAspectRatio = true;
             image.RelativeVertical = RelativeVertical.Line;
@@ -85,13 +98,13 @@ namespace CompanyABC.PDFGeneration.Abstract
             image.WrapFormat.Style = WrapStyle.Through;
 
             // Create footer
-            Paragraph paragraph = section.Footers.Primary.AddParagraph();
-            paragraph.AddText(CompanyABC.PDFGeneration.Constants.CompanyInfo.COMPANY_FOOTER);
+            Paragraph paragraph = currentSection.Footers.Primary.AddParagraph();
+            paragraph.AddText(CompanyABC.Utility.PDFReportGeneration.Constants.CompanyInfo.COMPANY_FOOTER);
             paragraph.Format.Font.Size = 9;
             paragraph.Format.Alignment = ParagraphAlignment.Center;
 
             // Add the print date field
-            paragraph = section.AddParagraph();
+            paragraph = currentSection.AddParagraph();
             paragraph.Format.SpaceBefore = "2cm";
             paragraph.Style = "Reference";
             paragraph.AddFormattedText("EXPORTED RESULTS", TextFormat.Bold);
@@ -100,9 +113,9 @@ namespace CompanyABC.PDFGeneration.Abstract
             paragraph.AddDateField("MM-dd-yyyy");
 
             // Create the item table
-            this._table = section.AddTable();
+            this._table = currentSection.AddTable();
             this._table.Style = "Table";
-            this._table.Borders.Color = CompanyABC.PDFGeneration.Constants.ColorScheme.TableBorder;
+            this._table.Borders.Color = CompanyABC.Utility.PDFReportGeneration.Constants.ColorScheme.TableBorder;
             this._table.Borders.Width = 0.25;
             this._table.Borders.Left.Width = 0.5;
             this._table.Borders.Right.Width = 0.5;

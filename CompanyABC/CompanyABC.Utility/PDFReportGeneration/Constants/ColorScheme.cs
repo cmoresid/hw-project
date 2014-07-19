@@ -1,6 +1,6 @@
 ﻿using MigraDoc.DocumentObjectModel;
 
-namespace CompanyABC.PDFGeneration.Constants
+namespace CompanyABC.Utility.PDFReportGeneration.Constants
 {
     public static class ColorScheme
     {

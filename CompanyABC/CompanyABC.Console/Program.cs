@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CompanyABC.PDFGeneration.Abstract;
-using CompanyABC.PDFGeneration.Entities;
-using CompanyABC.PDFGeneration.Templates;
+using CompanyABC.Utility.PDFReportGeneration;
 using CompanyABC.Domain.Entities;
 using System.IO;
 
