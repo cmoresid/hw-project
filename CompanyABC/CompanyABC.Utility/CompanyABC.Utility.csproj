@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="PDFReportGeneration\Constants\ColorScheme.cs" />
     <Compile Include="PDFReportGeneration\Constants\CompanyInfo.cs" />
     <Compile Include="PDFReportGeneration\PDFGeneratorInfo.cs" />

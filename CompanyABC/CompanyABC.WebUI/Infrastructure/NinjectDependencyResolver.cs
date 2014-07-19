@@ -6,6 +6,7 @@ using Ninject;
 using Ninject.Parameters;
 using Ninject.Syntax;
 using CompanyABC.Domain.Repositories;
+using CompanyABC.WebUI.Preferences;
 
 namespace CompanyABC.WebUI.Infrastructure
 {
@@ -32,6 +33,7 @@ namespace CompanyABC.WebUI.Infrastructure
         private void CreateBindings()
         {
             _kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            _kernel.Bind<IUserPreferenceService>().To<CookieUserPreferenceService>();
         }
     }
 }

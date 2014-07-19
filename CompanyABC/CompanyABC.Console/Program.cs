@@ -15,7 +15,7 @@ namespace CompanyABC.Console
             PDFGeneratorInfo info = new PDFGeneratorInfo()
             {
                 ColumnRecordNames = new List<string>() { "Column 1" },
-                LogoPath = "Logo.png",
+                LogoPath = "CompanyABCLogo.png",
                 Records = new List<Product>() { new Product() }
             };
 
