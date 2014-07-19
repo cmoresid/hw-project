@@ -1,0 +1,7 @@
+CompanyABC/CompanyABC.Domain/bin/*
+CompanyABC/CompanyABC.Domain/obj/*
+CompanyABC/CompanyABC.Tests/bin/*
+CompanyABC/CompanyABC.Tests/obj/*
+CompanyABC/CompanyABC.WebUI/bin/*
+CompanyABC/CompanyABC.WebUI/obj/*
+CompanyABC/packages/*
