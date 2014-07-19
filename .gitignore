@@ -4,4 +4,8 @@ CompanyABC/CompanyABC.Tests/bin/*
 CompanyABC/CompanyABC.Tests/obj/*
 CompanyABC/CompanyABC.WebUI/bin/*
 CompanyABC/CompanyABC.WebUI/obj/*
+CompanyABC/CompanyABC.Console/bin/*
+CompanyABC/CompanyABC.Console/obj/*
+CompanyABC/CompanyABC.PDFGeneration/bin/*
+CompanyABC/CompanyABC.PDFGeneration/obj/*
 CompanyABC/packages/*

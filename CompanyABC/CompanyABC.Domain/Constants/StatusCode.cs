@@ -7,8 +7,8 @@ namespace CompanyABC.Domain.Constants
 {
     public static class StatusCode
     {
-        public const string IN_STOCK = "In Stock";
-        public const string OUT_OF_STOCK = "Out of Stock";
-        public const string ON_THE_WAY = "On the way";
+        public readonly static string IN_STOCK = "In Stock";
+        public readonly static string OUT_OF_STOCK = "Out Of Stock";
+        public readonly static string ON_THE_WAY = "On The Way";
     }
 }
