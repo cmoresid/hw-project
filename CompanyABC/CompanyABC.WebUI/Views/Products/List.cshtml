@@ -1,19 +1,47 @@
 ﻿@model CompanyABC.WebUI.Models.ProductsViewModel
 
+@using PagedList.Mvc;
+
 @{
     ViewBag.Title = "Products";
 }
 
-@foreach (var p in Model.Products)
+<p>@Html.ActionLink("Create New Product", "Create")</p>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Vendor</th>
+        <th>Location</th>
+        <th>Actions</th>
+    </tr>
+@foreach (var product in Model.Products)
 {
-    <div class="item">
-        <h1>@p.ABCID</h1>
-        <h3>@p.Title</h3>
-        @p.Description
-        <h4>@p.ListPrice.ToString("c")</h4>
-    </div>
+    <tr>
+        <td>@Html.ActionLink(product.Title, "Details", new { id = product.ABCID }, null)</td>
+        <td>@product.Description</td>
+        <td>@product.Status</td>
+        <td>@product.Vendor</td>
+        <td>@product.Location</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = product.ABCID }) |
+            @using (Html.BeginForm("Delete", "Products", FormMethod.Post, new { id = "delete-form" }))
+            {
+                @Html.Hidden("id", @product.ABCID)
+                <input class="link-button delete-button" type="submit" value="Delete" data-confirm="Are you sure you want to delete '@product.Title'?" />
+            } 
+        </td>
+    </tr>        
 }
+</table>
 
 <div>
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+    @Html.PagedListPager(Model.Products, page => Url.Action("List", new { page }))
 </div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/Products/ListProduct.js"></script>
+}

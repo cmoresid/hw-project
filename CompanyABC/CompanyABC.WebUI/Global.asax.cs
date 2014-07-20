@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using CompanyABC.WebUI.Infrastructure;
+using CompanyABC.WebUI.App_Start;
 
 namespace CompanyABC.WebUI
 {
@@ -24,6 +25,8 @@ namespace CompanyABC.WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            // Configure Model Bindings
+            System.Web.Mvc.ModelBinders.Binders.Add(typeof(Guid), new CompanyABC.WebUI.ModelBinders.GuidModelBinder());
             // Configure dependency injection container
             DependencyResolver.SetResolver(new NinjectDependencyResolver());
         }

@@ -9,6 +9,7 @@ using CompanyABC.Domain.Repositories;
 using CompanyABC.WebUI.Preferences;
 using CompanyABC.WebUI.Localization;
 using CompanyABC.WebUI.Container;
+using CompanyABC.WebUI.App_Start;
 
 namespace CompanyABC.WebUI.Infrastructure
 {
@@ -37,8 +38,6 @@ namespace CompanyABC.WebUI.Infrastructure
             _kernel.Bind<IProductRepository>().To<EFProductRepository>();
             _kernel.Bind<IUserPreferenceService>().To<CookieUserPreferenceService>();
             _kernel.Bind<ILocalizedMessageService>().To<LocalizedMessageService>();
-
-            _kernel.Bind<IProductControllerContainer>().To<ProductControllerContainer>();
         }
     }
 }

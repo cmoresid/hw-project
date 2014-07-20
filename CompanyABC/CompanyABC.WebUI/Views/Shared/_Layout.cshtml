@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+
+    @RenderSection("css", required: false)
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <header>
         
     </header>
+
+    @if (TempData["results"] != null)
+    {
+        <div class="Message">@TempData["results"]</div>
+    }
+
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

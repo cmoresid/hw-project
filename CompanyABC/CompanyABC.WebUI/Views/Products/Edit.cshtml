@@ -1,0 +1,72 @@
+﻿@model CompanyABC.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { @class = "edit-form" }))
+{
+    @* Hidden Fields *@
+    <div>
+        @Html.HiddenFor(m => m.ABCID)
+        @Html.HiddenFor(m => m.DateCreated)
+    </div>
+
+    <div class="form-field">
+        <label for="Title">Title</label>
+        @Html.TextBoxFor(m => m.Title)
+    </div>
+    <div class="form-field">
+        <label for="Description">Description</label>
+        @Html.TextAreaFor(m => m.Description)
+    </div>
+    <div class="form-field">
+        <label for="Vendor">Vendor</label>
+        @Html.TextBoxFor(m => m.Vendor)
+    </div>
+    <div class="form-field">
+        <label for="Cost">Cost</label>
+        @Html.TextBoxFor(m => m.Cost)
+    </div>
+    <div class="form-field">
+        <label for="ListPrice">List Price</label>
+        @Html.TextBoxFor(m => m.ListPrice)
+    </div>
+    <div class="form-field">
+        <label for="Status">Status</label>
+        @* Really should have a custom HTML Helper to handle this... *@
+        @Html.DropDownListFor(m => m.Status, new List<SelectListItem>() 
+        { 
+            new SelectListItem() { Text = "In Stock", Value = "In Stock" },
+            new SelectListItem() { Text = "Out Of Stock", Value = "Out Of Stock" },
+            new SelectListItem() { Text = "On The Way", Value = "On The Way" }
+        })
+    </div>
+    <div class="form-field">
+        <label for="Location">Location</label>
+        @Html.TextBoxFor(m => m.Location)
+    </div>
+    <div class="form-field">
+        <label for="DateReceived">Date Received</label>
+        @Html.TextBoxFor(m => m.DateReceived)
+    </div>
+
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel Edit", "List");
+}
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Products/EditProduct.js"></script>   
+}
+
+@section css
+{
+    @Styles.Render("~/Content/themes/base/css");
+}

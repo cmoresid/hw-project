@@ -1,0 +1,86 @@
+﻿@model CompanyABC.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ABCID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ABCID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Vendor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vendor)
+    </div>
+
+    <div class="display-label">
+         List Price
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ListPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cost)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cost)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+
+    <div class="display-label">
+         Date Created
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">
+         Date Received
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateReceived)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ABCID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

@@ -11,8 +11,8 @@ using CompanyABC.Domain.Constants;
 using CompanyABC.WebUI.Preferences;
 using CompanyABC.WebUI.Controllers;
 using CompanyABC.WebUI.Models;
-using CompanyABC.WebUI.Container;
 using CompanyABC.WebUI.Localization;
+using PagedList;
 
 namespace CompanyABC.Tests
 {
@@ -35,17 +35,16 @@ namespace CompanyABC.Tests
             Mock<ILocalizedMessageService> mockMessageService = new Mock<ILocalizedMessageService>();
             mockMessageService.Setup(messageService => messageService.ProductSaved).Returns("{0} was saved.");
 
-            IProductControllerContainer container = new ProductControllerContainer(mockRepository.Object, mockMessageService.Object, mockUserPrefService.Object);
-
-            ProductsController controller = new ProductsController(container);
+            ProductsController controller = new ProductsController(mockRepository.Object, mockUserPrefService.Object, mockMessageService.Object);
 
             ProductsViewModel result = controller.List(2).Model as ProductsViewModel;
-            PagingInfo pageInfo = result.PagingInfo;
 
-            Assert.AreEqual(2, pageInfo.CurrentPageNumber);
-            Assert.AreEqual(5, pageInfo.ItemsPerPage);
-            Assert.AreEqual(8, pageInfo.TotalItems);
-            Assert.AreEqual(2, pageInfo.TotalPages);
+            var pagedList = result.Products;
+
+            Assert.AreEqual(2, pagedList.PageNumber);
+            Assert.AreEqual(5, pagedList.PageSize);
+            Assert.AreEqual(8, pagedList.TotalItemCount);
+            Assert.AreEqual(2, pagedList.PageCount);
         }
 
         [TestMethod]
@@ -62,9 +61,7 @@ namespace CompanyABC.Tests
             Mock<ILocalizedMessageService> mockMessageService = new Mock<ILocalizedMessageService>();
             mockMessageService.Setup(messageService => messageService.ProductSaved).Returns("{0} was saved.");
 
-            IProductControllerContainer container = new ProductControllerContainer(mockRepository.Object, mockMessageService.Object, mockUserPrefService.Object);
-
-            ProductsController controller = new ProductsController(container);
+            ProductsController controller = new ProductsController(mockRepository.Object, mockUserPrefService.Object, mockMessageService.Object);
             Product product = GenerateFakeProducts(1).FirstOrDefault();
             ActionResult result = controller.Edit(product);
 
@@ -73,7 +70,7 @@ namespace CompanyABC.Tests
         }
 
         [TestMethod]
-        public void Cannot_Save_Invalid_Changes()
+        public void SaveInvalidChangesToProductTest()
         {
             Mock<IProductRepository> mockRepository = new Mock<IProductRepository>();
             Mock<IUserPreferenceService> mockUserPrefService = new Mock<IUserPreferenceService>();
@@ -86,9 +83,7 @@ namespace CompanyABC.Tests
             Mock<ILocalizedMessageService> mockMessageService = new Mock<ILocalizedMessageService>();
             mockMessageService.Setup(messageService => messageService.ProductSaved).Returns("{0} was saved.");
 
-            IProductControllerContainer container = new ProductControllerContainer(mockRepository.Object, mockMessageService.Object, mockUserPrefService.Object);
-
-            ProductsController controller = new ProductsController(container);
+            ProductsController controller = new ProductsController(mockRepository.Object, mockUserPrefService.Object, mockMessageService.Object);
             controller.ModelState.AddModelError("error", "error");
             Product product = GenerateFakeProducts(1).FirstOrDefault();
             ActionResult result = controller.Edit(product);
@@ -97,6 +92,35 @@ namespace CompanyABC.Tests
             mockRepository.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
             // Assert - check the method result type
             Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+
+       [TestMethod]
+        public void DeleteValidProductsTest()
+        {
+            Guid productID = Guid.NewGuid();
+            Product prod = new Product { ABCID = productID, Title = "Product 1" };
+
+            Mock<IProductRepository> mockRepository = new Mock<IProductRepository>();
+            mockRepository.Setup(m => m.Products).Returns(new Product[] {
+                prod,
+                new Product { ABCID = Guid.NewGuid(), Title = "Product 2" },
+                new Product { ABCID = Guid.NewGuid(), Title = "Product 3" },
+            }.AsQueryable());
+
+            Mock<IUserPreferenceService> mockUserPrefService = new Mock<IUserPreferenceService>();
+            mockUserPrefService.Setup(prefService => prefService.Preferences).Returns(new UserPreferenceInfo()
+            {
+                ProductsPerPage = 5,
+                ProductColumnsToDisplay = new List<string>()
+            });
+
+            Mock<ILocalizedMessageService> mockMessageService = new Mock<ILocalizedMessageService>();
+            mockMessageService.Setup(messageService => messageService.ProductSaved).Returns("{0} was deleted.");
+
+            ProductsController controller = new ProductsController(mockRepository.Object, mockUserPrefService.Object, mockMessageService.Object);
+            //controller.Delete(prod.ABCID);
+
+            mockRepository.Verify(m => m.DeleteProduct(prod.ABCID));
         }
 
         private IQueryable<Product> GenerateFakeProducts(int size)

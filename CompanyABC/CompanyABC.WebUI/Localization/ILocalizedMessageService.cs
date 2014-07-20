@@ -8,5 +8,6 @@ namespace CompanyABC.WebUI.Localization
     public interface ILocalizedMessageService
     {
         string ProductSaved { get; }
+        string ProductDeleted { get; }
     }
 }
