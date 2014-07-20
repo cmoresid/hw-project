@@ -76,7 +76,7 @@ namespace CompanyABC.WebUI.Controllers
                 return View(product);
 
             _productRepository.SaveProduct(product);
-            TempData[Alerts.SUCCESS] = string.Format(_messageService.ProductSaved, product.Title);
+            TempData[Alerts.SUCCESS] = _messageService.ProductSaved;
 
             return RedirectToAction("List");
         }
@@ -87,7 +87,7 @@ namespace CompanyABC.WebUI.Controllers
             Product deletedProduct = _productRepository.DeleteProduct(id);
 
             if (deletedProduct != null)
-                TempData[Alerts.SUCCESS] = string.Format(_messageService.ProductDeleted, deletedProduct.Title);
+                TempData[Alerts.SUCCESS] = _messageService.ProductDeleted;
 
             return RedirectToAction("List");
         }

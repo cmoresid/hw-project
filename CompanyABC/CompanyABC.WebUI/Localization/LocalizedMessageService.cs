@@ -30,13 +30,13 @@ namespace CompanyABC.WebUI.Localization
         public string ProductSaved
         {
             //get { return Instance.GetString("ProductSaved"); }
-            get { return "{0} was saved."; }
+            get { return "The product was successfully saved."; }
         }
 
         public string ProductDeleted
         {
             //get { return Instance.GetString("ProductDeleted"); }
-            get { return "{0} was deleted."; }
+            get { return "The product was successfully deleted."; }
         }
     }
 }

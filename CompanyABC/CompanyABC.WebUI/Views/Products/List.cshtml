@@ -9,46 +9,74 @@
 <!-- Start container -->
 <div class="container">
 
-<p>@Html.ActionLink("Create New Product", "Create")</p>
-<p>@Html.ActionLink("Export To PDF", "GenerateReport", "PDFReport", new { search = Request.Params["search"] ?? "" }, new { id = "export-pdf-link" })</p>
+<div class="page-title">
+    <h2>View Inventory</h2>
+</div>
 
+<div class="toolbar">
+    @Html.ActionLink("Create New Product", "Create", null, new { id = "create-link", @class = "btn", style = "float: left" })
+
+    @using (Html.BeginForm("List", "Products", FormMethod.Get, new { @class = "form-search", style = "float: right", autocomplete = "off" }))
+    {
+        <div class="input-append text-right">
+            @Html.TextBox("search", null, new { @class = "input-medium search-query clearable", placeholder = "Search for Products" });
+            <input type="submit" class="btn" value="Search" />
+        </div>
+    }
+
+    <div class="search-panel">
+
+    </div>
+</div>
 <!-- Start Table Responsive -->
 <div class="table-responsive">
 
-<table class="table table-striped table-bordered">
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Vendor</th>
-        <th>Location</th>
-        <th>Actions</th>
-    </tr>
-@foreach (var product in Model.Products)
-{
-    <tr>
-        <td>@Html.ActionLink(product.Title, "Details", new { id = product.ABCID }, null)</td>
-        <td>@product.Description</td>
-        <td>@product.Status</td>
-        <td>@product.Vendor</td>
-        <td>@product.Location</td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = product.ABCID }) |
-            @using (Html.BeginForm("Delete", "Products", FormMethod.Post, new { id = "delete-form" }))
-            {
-                @Html.Hidden("id", @product.ABCID)
-                <input class="link-button delete-button" type="submit" value="Delete" data-confirm="Are you sure you want to delete '@product.Title'?" />
-            } 
-        </td>
-    </tr>        
-}
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th style="min-width: 100px">Status</th>
+            <th>Vendor</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var product in Model.Products)
+    {
+        <tr>
+            <td>@Html.ActionLink(product.Title, "Details", new { id = product.ABCID }, null)</td>
+            <td>@product.Description</td>
+            <td>@product.Status</td>
+            <td>@product.Vendor</td>
+            <td>@product.Location</td>
+            <td>
+                <span class="glyphicon icon-pencil"></span> @Html.ActionLink("Edit", "Edit", new { id = product.ABCID }, new { @class = "edit-link" })
+                @using (Html.BeginForm("Delete", "Products", FormMethod.Post, new { id = "delete-form", style = "float: left; width: 100%; max-height: 0px;" }))
+                {
+                    @Html.Hidden("id", @product.ABCID)
+                    <div>
+                        <span class="glyphicon icon-trash"></span> 
+                        <input class="link-button" type="submit" value="Delete" data-confirm="Are you sure you want to delete '@product.Title'?" />
+                    </div>
+                } 
+            </td>
+        </tr>        
+    }
+    </tbody>
 </table>
 
 <!-- End Table Responsive -->
 </div>
 
+<div class="text-right">
+    @Html.ActionLink("Export To PDF", "GenerateReport", "PDFReport", new { search = Request.Params["search"] ?? "" }, new { id = "export-pdf-link", @class = "btn" })
+</div>
+
 <div>
-    @Html.PagedListPager(Model.Products, page => Url.Action("List", new { page = page, search = Request.Params["search"] ?? "" }))
+   @Html.PagedListPager(Model.Products, page => Url.Action("List", new { page = page, search = Request.Params["search"] ?? "" }))
 </div>
 
 <!-- End Container -->
@@ -57,4 +85,18 @@
 @section scripts
 {
     <script type="text/javascript" src="~/Scripts/Products/ListProduct.js"></script>
+
+    <script type="text/javascript">
+        function tog(v) { return v ? 'addClass' : 'removeClass'; }
+
+        $(document).on('input', '.clearable', function () {
+            $(this)[tog(this.value)]('x');
+        }).on('mousemove', '.x', function (e) {
+            $(this)[tog(this.offsetWidth - 18 < e.clientX - this.getBoundingClientRect().left)]('onX');
+        }).on('click', '.onX', function () {
+            $(this).removeClass('x onX').val('');
+
+            window.location.href = "@Url.Action("List")";
+        });
+    </script>
 }

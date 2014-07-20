@@ -22,7 +22,8 @@ namespace BootstrapSupport
                 "~/Content/body.css",
                 "~/Content/bootstrap-responsive.css",
                 "~/Content/bootstrap-mvc-validation.css",
-                "~/Content/PagedList.css"
+                "~/Content/PagedList.css",
+                "~/Content/Site.css"
                 ));
         }
     }

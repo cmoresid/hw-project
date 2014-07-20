@@ -1,84 +1,55 @@
-﻿body
+﻿.bodycontainer
 {
-    font-size: .85em;
-    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+    max-height: 70%;
+    width: 100%;
+    margin: 0;
+    overflow-y: auto;
 }
-
-header, footer, nav, section
+.table-scrollable
 {
-    display: block;
-}
-
-
-/* Styles for basic forms
------------------------------------------------------------*/
-fieldset
-{
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
-}
-
-legend
-{
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-textarea
-{
-    min-height: 75px;
-}
-
-.editor-label
-{
-    margin: 1em 0 0 0;
-}
-
-.editor-field
-{
-    margin: 0.5em 0 0 0;
-}
-
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
-{
-    color: #f00;
-}
-
-.field-validation-valid
-{
-    display: none;
-}
-
-.input-validation-error
-{
-    border: 1px solid #f00;
-    background-color: #fee;
-}
-
-.validation-summary-errors
-{
-    font-weight: bold;
-    color: #f00;
-}
-
-.validation-summary-valid
-{
-    display: none;
+    margin: 0;
+    padding: 0;
 }
 
 .link-button
 {
+    display: inline-block;
     background: none !important;
     border: none;
     padding: 0 !important; /*optional*/
     font-family: arial,sans-serif; /*input has OS specific font-family*/
-    color: #069;
-    text-decoration: underline;
+    color: #0088cc;
+    text-decoration: none;
     cursor: pointer;
 }
+
+.link-button:hover
+{
+    color: #005580;
+    text-decoration: underline;
+}
+
+.toolbar
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.clearable
+{
+    background: url(http://i.imgur.com/z7ZSYjt.png) no-repeat right -10px center;
+    border: 1px solid #999;
+    padding: 3px 10px 3px 4px; /* USE the same right padding in jQ! */
+    border-radius: 3px;
+}
+
+.clearable.x
+{
+    background-position: right 5px center;
+}
+
+.clearable.onX
+{
+    cursor: pointer;
+}
+
