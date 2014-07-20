@@ -26,8 +26,7 @@ namespace CompanyABC.Utility.PDFReportGeneration
             this._document = new Document();
 
             DefineStyles();
-            CreatePage();
-            PopulateTable();
+            BuildReport();
 
             return CreateMemoryStreamFromDocument();
         }
@@ -45,6 +44,8 @@ namespace CompanyABC.Utility.PDFReportGeneration
 
         private void DefineStyles()
         {
+            this._document.DefaultPageSetup.Orientation = Orientation.Landscape;
+
             // Get the predefined style Normal.
             Style style = this._document.Styles["Normal"];
             // Because all styles are derived from Normal, the next line changes the 
@@ -71,7 +72,7 @@ namespace CompanyABC.Utility.PDFReportGeneration
             style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
         }
 
-        private void CreatePage()
+        protected void CreatePage()
         {
             // Each MigraDoc document needs at least one section.
             Section currentSection = this._document.LastSection;
@@ -109,6 +110,9 @@ namespace CompanyABC.Utility.PDFReportGeneration
             paragraph.Style = "Reference";
             paragraph.AddFormattedText("EXPORTED RESULTS", TextFormat.Bold);
             paragraph.AddTab();
+            paragraph.AddTab();
+            paragraph.AddTab();
+            paragraph.AddTab();
             paragraph.AddText("Date Generated: ");
             paragraph.AddDateField("MM-dd-yyyy");
 
@@ -122,6 +126,6 @@ namespace CompanyABC.Utility.PDFReportGeneration
             this._table.Rows.LeftIndent = 0;
         }
 
-        protected abstract void PopulateTable();
+        protected abstract void BuildReport();
     }
 }

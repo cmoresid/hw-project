@@ -10,6 +10,7 @@ using CompanyABC.WebUI.Models;
 using System.Net;
 using CompanyABC.WebUI.Localization;
 using PagedList;
+using CompanyABC.Domain.Search;
 
 namespace CompanyABC.WebUI.Controllers
 {
@@ -18,17 +19,23 @@ namespace CompanyABC.WebUI.Controllers
         private readonly IProductRepository _productRepository;
         private readonly IUserPreferenceService _userPreferenceService;
         private readonly ILocalizedMessageService _messageService;
+        private readonly IProductSearchService _searchService;
 
         public ProductsController(IProductRepository productRepo, IUserPreferenceService userPrefService, ILocalizedMessageService messageService)
         {
             this._productRepository = productRepo;
             this._userPreferenceService = userPrefService;
             this._messageService = messageService;
+            this._searchService = new ProductSearchService(_productRepository);
         }
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string search, int page = 1)
         {
-            var products = _productRepository.Products;
+            var products = _productRepository.Products;;
+
+            if (!string.IsNullOrEmpty(search))
+                products = _searchService.Search(search);
+
             var pageOfProducts = products.OrderBy(product => product.ABCID).ToPagedList(page, _userPreferenceService.Preferences.ProductsPerPage);
 
             return View(new ProductsViewModel()

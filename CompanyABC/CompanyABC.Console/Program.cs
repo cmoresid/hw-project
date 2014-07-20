@@ -16,7 +16,7 @@ namespace CompanyABC.Console
             {
                 ColumnRecordNames = new List<string>() { "Column 1" },
                 LogoPath = "CompanyABCLogo.png",
-                Records = new List<Product>() { new Product() }
+                Records = FakeData()
             };
 
             PDFReportGenerator generator = new ProductReportPDFGenerator(info);
@@ -29,6 +29,49 @@ namespace CompanyABC.Console
                 fileStream.Write(bytes, 0, bytes.Length);
                 pdfStream.Close();
             }
+        }
+
+        private static IEnumerable<Product> FakeData()
+        {
+            return new List<Product>()
+            {
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) },
+                new Product() { Title = "Testing 1", Description = "Description 1", Vendor = "Vendor 1", Cost = 10.00M, ListPrice = 15.00M, Status = "Out Of Stock", Location = "Bin 1", DateCreated = DateTime.Now.AddDays(4), DateReceived = DateTime.Now.AddDays(6) }
+            };
         }
     }
 }

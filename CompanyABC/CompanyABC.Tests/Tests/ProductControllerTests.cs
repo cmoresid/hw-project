@@ -37,7 +37,7 @@ namespace CompanyABC.Tests
 
             ProductsController controller = new ProductsController(mockRepository.Object, mockUserPrefService.Object, mockMessageService.Object);
 
-            ProductsViewModel result = controller.List(2).Model as ProductsViewModel;
+            ProductsViewModel result = controller.List("", 2).Model as ProductsViewModel;
 
             var pagedList = result.Products;
 
