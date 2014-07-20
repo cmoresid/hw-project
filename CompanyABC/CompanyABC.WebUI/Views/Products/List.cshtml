@@ -7,6 +7,7 @@
 }
 
 <p>@Html.ActionLink("Create New Product", "Create")</p>
+<p>@Html.ActionLink("Export To PDF", "GenerateReport", "PDFReport", new { search = Request.Params["search"] ?? "" }, new { id = "export-pdf-link" })</p>
 
 <table>
     <tr>
@@ -38,7 +39,7 @@
 </table>
 
 <div>
-    @Html.PagedListPager(Model.Products, page => Url.Action("List", new { page }))
+    @Html.PagedListPager(Model.Products, page => Url.Action("List", new { page = page, search = Request.Params["search"] ?? "" }))
 </div>
 
 @section scripts
