@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using CompanyABC.WebUI.Infrastructure;
 using CompanyABC.WebUI.App_Start;
+using BootstrapSupport;
 
 namespace CompanyABC.WebUI
 {
@@ -24,11 +25,13 @@ namespace CompanyABC.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BootstrapBundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Configure Model Bindings
             System.Web.Mvc.ModelBinders.Binders.Add(typeof(Guid), new CompanyABC.WebUI.ModelBinders.GuidModelBinder());
             // Configure dependency injection container
             DependencyResolver.SetResolver(new NinjectDependencyResolver());
+            
         }
     }
 }

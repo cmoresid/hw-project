@@ -11,6 +11,7 @@ using System.Net;
 using CompanyABC.WebUI.Localization;
 using PagedList;
 using CompanyABC.Domain.Search;
+using BootstrapSupport;
 
 namespace CompanyABC.WebUI.Controllers
 {
@@ -75,7 +76,7 @@ namespace CompanyABC.WebUI.Controllers
                 return View(product);
 
             _productRepository.SaveProduct(product);
-            TempData["results"] = string.Format(_messageService.ProductSaved, product.Title);
+            TempData[Alerts.SUCCESS] = string.Format(_messageService.ProductSaved, product.Title);
 
             return RedirectToAction("List");
         }
@@ -86,7 +87,7 @@ namespace CompanyABC.WebUI.Controllers
             Product deletedProduct = _productRepository.DeleteProduct(id);
 
             if (deletedProduct != null)
-                TempData["results"] = string.Format(_messageService.ProductDeleted, deletedProduct.Title);
+                TempData[Alerts.SUCCESS] = string.Format(_messageService.ProductDeleted, deletedProduct.Title);
 
             return RedirectToAction("List");
         }
