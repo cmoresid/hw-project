@@ -22,7 +22,7 @@ namespace CompanyABC.Utility.PDFReportGeneration
             var products = _info.Records.Cast<Product>();
 
             int pageNumber = 1;
-            var pagedProducts = products.ToPagedList<Product>(pageNumber, 30);
+            var pagedProducts = products.OrderBy(product => product.ABCID).ToPagedList<Product>(pageNumber, 30);
             int numberOfPages = pagedProducts.PageCount;
 
             while (pageNumber <= numberOfPages)
@@ -133,7 +133,7 @@ namespace CompanyABC.Utility.PDFReportGeneration
                 }
 
                 pageNumber++;
-                pagedProducts = products.ToPagedList<Product>(pageNumber, 30);
+                pagedProducts = products.OrderBy(product => product.ABCID).ToPagedList<Product>(pageNumber, 30);
 
                 Paragraph pageNumberParagraph = this._document.LastSection.AddParagraph("pg. " + this._pageNumber);
                 pageNumberParagraph.Format.Alignment = ParagraphAlignment.Center;

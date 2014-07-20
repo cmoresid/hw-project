@@ -4,7 +4,7 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.Rendering;
-
+using System.Linq;
 
 namespace CompanyABC.Utility.PDFReportGeneration
 {
@@ -21,9 +21,10 @@ namespace CompanyABC.Utility.PDFReportGeneration
             this._pageNumber = 0;
         }
 
-        public System.IO.Stream CreatePDFReport()
+        public System.IO.Stream CreatePDFReport(IQueryable<object> objects)
         {
             this._document = new Document();
+            this._info.Records = objects;
 
             DefineStyles();
             BuildReport();
