@@ -58,6 +58,7 @@
 	border-bottom: 1px solid #333
 }
 
+/* Borrowed from NIRIX web page */
 .buttonred {
 	-moz-box-shadow:inset 0px 1px 0px 0px #f5673f;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f5673f;
@@ -78,15 +79,23 @@
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #a8381c;
-}.buttonred:hover {
+}
+
+.buttonred:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c24823), color-stop(1, #df562c) );
 	background:-moz-linear-gradient( center top, #c24823 5%, #df562c 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c24823', endColorstr='#df562c');
 	background-color:#c24823;
 	color: #fff;
 	text-decoration: none;
-}.buttonred:active {
+}
+
+.buttonred:active {
 	position:relative;
 	top:1px;
+}
+
+.table-bold {
+    font-weight: bold;
 }
 

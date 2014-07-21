@@ -18,9 +18,13 @@ namespace CompanyABC.Domain.Entities
         public string Vendor { get; set; }
 
         [Required(ErrorMessage = "Please enter a list price.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price.")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         public decimal ListPrice { get; set; }
 
         [Required(ErrorMessage = "Please enter a cost.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive cost.")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         public decimal Cost { get; set; }
 
         [Required(ErrorMessage = "Please enter a status.")]
@@ -29,8 +33,12 @@ namespace CompanyABC.Domain.Entities
         [Required(ErrorMessage = "Please enter a location.")]
         public string Location { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+               ApplyFormatInEditMode = true)]
         public DateTime DateCreated { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+               ApplyFormatInEditMode = true)]
         public DateTime? DateReceived { get; set; }
     }
 }

@@ -4,81 +4,59 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<!-- Begin Container -->
+<div class="container">
 
-<fieldset>
-    <legend>Product</legend>
+<h1>PRODUCT DETAILS</h1>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ABCID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ABCID)
-    </div>
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.ABCID)</td>
+            <td>@Html.DisplayFor(model => model.ABCID)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.Title)</td>
+            <td>@Html.DisplayFor(model => model.Title)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.Description)</td>
+            <td>@Html.DisplayFor(model => model.Description)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.Vendor)</td>
+            <td>@Html.DisplayFor(model => model.Vendor)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.ListPrice)</td>
+            <td>@Html.DisplayFor(model => model.ListPrice)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.Cost)</td>
+            <td>@Html.DisplayFor(model => model.Cost)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.Status)</td>
+            <td>@Html.DisplayFor(model => model.Status)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">@Html.DisplayNameFor(model => model.Location)</td>
+            <td>@Html.DisplayFor(model => model.Location)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">Date Created</td>
+            <td>@Html.DisplayFor(model => model.DateCreated)</td>
+        </tr>
+        <tr>
+            <td class="table-bold">Date Received</td>
+            <td>@Html.DisplayFor(model => model.DateReceived)</td>
+        </tr>
+    </tbody>
+</table>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
+<!-- End Container -->
+</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Vendor)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Vendor)
-    </div>
-
-    <div class="display-label">
-         List Price
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ListPrice)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Cost)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Cost)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Status)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Status)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Location)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Location)
-    </div>
-
-    <div class="display-label">
-         Date Created
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateCreated)
-    </div>
-
-    <div class="display-label">
-         Date Received
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateReceived)
-    </div>
-</fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ABCID }) |
     @Html.ActionLink("Back to List", "List")

@@ -325,9 +325,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Shared\Index.cshtml" />
-    <Content Include="Views\Shared\Details.cshtml" />
-    <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Shared\_validationSummary.cshtml" />
     <Content Include="Views\Shared\_BootstrapLayout.narrow.cshtml" />
     <Content Include="Views\Shared\_BootstrapLayout.empty.cshtml" />

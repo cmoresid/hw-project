@@ -16,6 +16,7 @@
         <label class="control-label" for="Title">Title</label>
         <div class="controls">
             @Html.TextBoxFor(m => m.Title)
+            @Html.ValidationMessage("Title", null, new { @class = "help-inline" })
         </div>
     </div>
     
@@ -23,6 +24,7 @@
         <label class="control-label" for="Description">Description</label>
         <div class="controls">
             @Html.TextAreaFor(m => m.Description)
+            @Html.ValidationMessage("Description", null, new { @class = "help-inline" })
         </div>
     </div>
     
@@ -30,6 +32,7 @@
         <label class="control-label" for="Vendor">Vendor</label>
         <div class="controls">
             @Html.TextBoxFor(m => m.Vendor)
+            @Html.ValidationMessage("Vendor", null, new { @class = "help-inline" })
         </div>
     </div>
     
@@ -37,6 +40,7 @@
         <label class="control-label" for="Cost">Cost</label>
         <div class="controls">
             @Html.TextBoxFor(m => m.Cost)
+            @Html.ValidationMessage("Cost", null, new { @class = "help-inline" })
         </div>
     </div>
     
@@ -44,6 +48,7 @@
         <label class="control-label" for="ListPrice">List Price</label>
         <div class="controls">
             @Html.TextBoxFor(m => m.ListPrice)
+            @Html.ValidationMessage("ListPrice", null, new { @class = "help-inline" })
         </div>
     </div>
     
@@ -64,6 +69,7 @@
         <label class="control-label" for="Location">Location</label>
         <div class="controls">
             @Html.TextBoxFor(m => m.Location)
+            @Html.ValidationMessage("Location", null, new { @class = "help-inline" })
         </div>
     </div>
 
@@ -71,6 +77,7 @@
         <label class="control-label" for="DateReceived">Date Received</label>
         <div class="controls">
             @Html.TextBoxFor(m => m.DateReceived)
+            @Html.ValidationMessage("Location", null, new { @class = "help-inline" })
         </div>
     </div>
 
