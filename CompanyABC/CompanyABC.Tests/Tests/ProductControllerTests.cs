@@ -118,7 +118,7 @@ namespace CompanyABC.Tests
             mockMessageService.Setup(messageService => messageService.ProductSaved).Returns("{0} was deleted.");
 
             ProductsController controller = new ProductsController(mockRepository.Object, mockUserPrefService.Object, mockMessageService.Object);
-            //controller.Delete(prod.ABCID);
+            controller.Delete(prod.ABCID);
 
             mockRepository.Verify(m => m.DeleteProduct(prod.ABCID));
         }

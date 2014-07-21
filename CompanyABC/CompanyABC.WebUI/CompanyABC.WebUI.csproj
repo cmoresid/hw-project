@@ -154,9 +154,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
-    <Compile Include="Container\IProductControllerContainer.cs" />
-    <Compile Include="Container\ProductControllerContainer.cs" />
-    <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\PDFReportController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">

@@ -8,7 +8,6 @@ using Ninject.Syntax;
 using CompanyABC.Domain.Repositories;
 using CompanyABC.WebUI.Preferences;
 using CompanyABC.WebUI.Localization;
-using CompanyABC.WebUI.Container;
 using CompanyABC.WebUI.App_Start;
 
 namespace CompanyABC.WebUI.Infrastructure
