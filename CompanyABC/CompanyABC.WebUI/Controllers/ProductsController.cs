@@ -59,11 +59,14 @@ namespace CompanyABC.WebUI.Controllers
 
         public ViewResult Create()
         {
+
+            ViewBag.Title = "Create Product";
             return View("Edit", new Product() { DateCreated = DateTime.Now });
         }
 
         public ViewResult Edit(Guid id)
         {
+            ViewBag.Title = "Edit Product";
             Product productToEdit = _productRepository.Products.FirstOrDefault(product => product.ABCID == id);
 
             return View(productToEdit);

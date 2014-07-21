@@ -10,23 +10,19 @@
 <div class="container">
 
 <div class="page-title">
-    <h2>View Inventory</h2>
+    <h3>INVENTORY MANAGEMENT SYSTEM</h3>
 </div>
 
 <div class="toolbar">
-    @Html.ActionLink("Create New Product", "Create", null, new { id = "create-link", @class = "btn", style = "float: left" })
+    @Html.ActionLink("Create New Product", "Create", null, new { id = "create-link", @class = "buttonred", style = "float: left" })
 
     @using (Html.BeginForm("List", "Products", FormMethod.Get, new { @class = "form-search", style = "float: right", autocomplete = "off" }))
     {
-        <div class="input-append text-right">
-            @Html.TextBox("search", null, new { @class = "input-medium search-query clearable", placeholder = "Search for Products" });
-            <input type="submit" class="btn" value="Search" />
+        <div class="text-right">
+            @Html.TextBox("search", null, new { @class = "input-large search-query clearable", placeholder = "Search for Products...", style = "margin-right: 5px" })
+            <input type="submit" class="buttonred" value="Search" />
         </div>
     }
-
-    <div class="search-panel">
-
-    </div>
 </div>
 <!-- Start Table Responsive -->
 <div class="table-responsive">
@@ -59,7 +55,7 @@
                     @Html.Hidden("id", @product.ABCID)
                     <div>
                         <span class="glyphicon icon-trash"></span> 
-                        <input class="link-button" type="submit" value="Delete" data-confirm="Are you sure you want to delete '@product.Title'?" />
+                        <input class="link-button delete-button" type="submit" value="Delete" data-confirm="Are you sure you want to delete '@product.Title'?" />
                     </div>
                 } 
             </td>
@@ -72,7 +68,7 @@
 </div>
 
 <div class="text-right">
-    @Html.ActionLink("Export To PDF", "GenerateReport", "PDFReport", new { search = Request.Params["search"] ?? "" }, new { id = "export-pdf-link", @class = "btn" })
+    @Html.ActionLink("Export To PDF", "GenerateReport", "PDFReport", new { search = Request.Params["search"] ?? "" }, new { id = "export-pdf-link", @class = "buttonred" })
 </div>
 
 <div>

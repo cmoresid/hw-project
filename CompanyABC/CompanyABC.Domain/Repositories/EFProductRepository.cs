@@ -18,6 +18,9 @@ namespace CompanyABC.Domain.Repositories
         {
             if (productToSave.ABCID == Guid.Empty)
             {
+                productToSave.ABCID = Guid.NewGuid();
+                productToSave.DateCreated = DateTime.Now;
+
                 _context.Products.Add(productToSave);
             }
             else
@@ -35,9 +38,9 @@ namespace CompanyABC.Domain.Repositories
                     dbProduct.Title = productToSave.Title;
                     dbProduct.Vendor = productToSave.Vendor;
                 }
-
-                _context.SaveChanges();
             }
+
+            _context.SaveChanges();
         }
 
         public Product DeleteProduct(Guid productToDelete)

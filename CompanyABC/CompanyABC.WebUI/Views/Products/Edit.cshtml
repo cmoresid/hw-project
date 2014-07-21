@@ -1,12 +1,10 @@
 ﻿@model CompanyABC.Domain.Entities.Product
 
-@{
-    ViewBag.Title = "Edit Product";
-}
+<div class="container">
 
-<h1>Edit</h1>
+<h1>@Html.Raw(ViewBag.Title)</h1>
 
-@using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { @class = "edit-form" }))
+@using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @* Hidden Fields *@
     <div>
@@ -14,48 +12,77 @@
         @Html.HiddenFor(m => m.DateCreated)
     </div>
 
-    <div class="form-field">
-        <label for="Title">Title</label>
-        @Html.TextBoxFor(m => m.Title)
+    <div class="control-group">
+        <label class="control-label" for="Title">Title</label>
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Title)
+        </div>
     </div>
-    <div class="form-field">
-        <label for="Description">Description</label>
-        @Html.TextAreaFor(m => m.Description)
+    
+    <div class="control-group">
+        <label class="control-label" for="Description">Description</label>
+        <div class="controls">
+            @Html.TextAreaFor(m => m.Description)
+        </div>
     </div>
-    <div class="form-field">
-        <label for="Vendor">Vendor</label>
-        @Html.TextBoxFor(m => m.Vendor)
+    
+    <div class="control-group">
+        <label class="control-label" for="Vendor">Vendor</label>
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Vendor)
+        </div>
     </div>
-    <div class="form-field">
-        <label for="Cost">Cost</label>
-        @Html.TextBoxFor(m => m.Cost)
+    
+    <div class="control-group">
+        <label class="control-label" for="Cost">Cost</label>
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Cost)
+        </div>
     </div>
-    <div class="form-field">
-        <label for="ListPrice">List Price</label>
-        @Html.TextBoxFor(m => m.ListPrice)
+    
+    <div class="control-group">
+        <label class="control-label" for="ListPrice">List Price</label>
+        <div class="controls">
+            @Html.TextBoxFor(m => m.ListPrice)
+        </div>
     </div>
-    <div class="form-field">
-        <label for="Status">Status</label>
-        @* Really should have a custom HTML Helper to handle this... *@
-        @Html.DropDownListFor(m => m.Status, new List<SelectListItem>() 
-        { 
-            new SelectListItem() { Text = "In Stock", Value = "In Stock" },
-            new SelectListItem() { Text = "Out Of Stock", Value = "Out Of Stock" },
-            new SelectListItem() { Text = "On The Way", Value = "On The Way" }
-        })
-    </div>
-    <div class="form-field">
-        <label for="Location">Location</label>
-        @Html.TextBoxFor(m => m.Location)
-    </div>
-    <div class="form-field">
-        <label for="DateReceived">Date Received</label>
-        @Html.TextBoxFor(m => m.DateReceived)
+    
+    <div class="control-group">
+        <label class="control-label" for="Status">Status</label>
+        <div class="controls">
+            @* Really should have a custom HTML Helper to handle this... *@
+            @Html.DropDownListFor(m => m.Status, new List<SelectListItem>() 
+            { 
+                new SelectListItem() { Text = "In Stock", Value = "In Stock" },
+                new SelectListItem() { Text = "Out Of Stock", Value = "Out Of Stock" },
+                new SelectListItem() { Text = "On The Way", Value = "On The Way" }
+            })
+        </div>
     </div>
 
-    <input type="submit" value="Save" />
-    @Html.ActionLink("Cancel Edit", "List");
+    <div class="control-group">
+        <label class="control-label" for="Location">Location</label>
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Location)
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="DateReceived">Date Received</label>
+        <div class="controls">
+            @Html.TextBoxFor(m => m.DateReceived)
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <input class="buttonred" type="submit" value="Save" />
+            <a href="@Url.Action("List")" class="buttonred" >Cancel</a>
+        </div>
+    </div>
 }
+
+</div>
 
 @section scripts
 {
@@ -63,5 +90,10 @@
     <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript" src="~/Scripts/Products/EditProduct.js"></script>   
+}
+
+@section head
+{
+    <link type="text/css" rel="stylesheet" href="~/Content/themes/base/minified/jquery.ui.css" />
 }
 

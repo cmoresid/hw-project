@@ -33,7 +33,7 @@ namespace CompanyABC.WebUI.Controllers
                     // TODO: If I have time, allow user to customize what columns they want
                     // to export to PDF.
                     ColumnRecordNames = new List<string>(),
-                    LogoPath = Server.MapPath(Url.Content("~/Content/img/logo.png"))
+                    LogoPath = Server.MapPath(Url.Content("~/Content/images/logo.png"))
                 });
 
                 var products = _productRepository.Products;
