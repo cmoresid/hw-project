@@ -59,7 +59,6 @@ namespace CompanyABC.WebUI.Controllers
 
         public ViewResult Create()
         {
-
             ViewBag.Title = "CREATE PRODUCT";
             return View("Edit", new Product() { DateCreated = DateTime.Now });
         }
