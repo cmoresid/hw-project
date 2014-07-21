@@ -45,7 +45,7 @@
         <tr>
             <td>@Html.ActionLink(product.Title, "Details", new { id = product.ABCID }, null)</td>
             <td>@product.Description</td>
-            <td>@product.Status</td>
+            <td>@Html.ProductStatusHelper(product.Status)</td>
             <td>@product.Vendor</td>
             <td>@product.Location</td>
             <td>

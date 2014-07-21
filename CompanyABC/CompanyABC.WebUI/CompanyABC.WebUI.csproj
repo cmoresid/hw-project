@@ -162,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StatusHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Localization\ILocalizedMessageService.cs" />
     <Compile Include="Localization\Messages.Designer.cs">
@@ -317,9 +318,7 @@
   <ItemGroup>
     <Content Include="Views\Products\Details.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Shared\_html5shiv.cshtml" />
   </ItemGroup>
