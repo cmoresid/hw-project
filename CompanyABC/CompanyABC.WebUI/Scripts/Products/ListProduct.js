@@ -7,6 +7,7 @@
 
     $('#export-pdf-link').click(function (e) {
         $('#export-message').show();
+        $('body').scrollTop(0);
     });
 
     function getParameterByName(name) {
