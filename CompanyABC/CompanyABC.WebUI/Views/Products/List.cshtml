@@ -24,6 +24,9 @@
         </div>
     }
 </div>
+
+@if (Model.Products.Count != 0)
+{
 <!-- Start Table Responsive -->
 <div class="table-responsive">
 
@@ -74,6 +77,13 @@
 <div>
    @Html.PagedListPager(Model.Products, page => Url.Action("List", new { page = page, search = Request.Params["search"] ?? "" }))
 </div>
+}
+else
+{
+    <div class="no-results">
+        Sorry, no products found matching your query.
+    </div>
+}
 
 <!-- End Container -->
 </div>

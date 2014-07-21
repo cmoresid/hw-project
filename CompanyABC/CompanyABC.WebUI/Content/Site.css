@@ -99,3 +99,8 @@
     font-weight: bold;
 }
 
+.no-results {
+	font-size: large;
+	font-style: italic;
+	padding-top: 50px;
+}
