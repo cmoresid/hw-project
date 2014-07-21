@@ -5,6 +5,10 @@
         }
     });
 
+    $('#export-pdf-link').click(function (e) {
+        $('#export-message').show();
+    });
+
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
